@@ -13,8 +13,9 @@ public class ArmaMelee : MonoBehaviour
     public int PtsDanio = 25;
     public Elementos Elemento = Elementos.Tierra;
     public string TagDueñoArma;
+    
 
-    private Collider MiCollider;
+    public Collider MiCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +30,8 @@ public class ArmaMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MiCollider.enabled = Atacando;
+        
+        
     }
 
     private void OnTriggerEnter(Collider other)

@@ -16,11 +16,11 @@ public class Character : MonoBehaviour
 
     public void IniciarAtaque()
     {
-        MiArma.Atacando = true;
+        MiArma.MiCollider.enabled = true;
     }
     public void TerminarAtaque()
     {
-        MiArma.Atacando = false;
+        MiArma.MiCollider.enabled = false; 
     }    
     public void RecibirDanio(int puntos, GameObject origen)
     {

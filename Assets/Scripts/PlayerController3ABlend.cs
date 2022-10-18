@@ -10,6 +10,7 @@ public class PlayerController3ABlend : MonoBehaviour
     public float FuerzaSalto = 4f;
     private Rigidbody MiCuerpo;
     private Animator MiAnimador;
+    
 
     private DetectorPiso DetectorPiso;
 
@@ -63,6 +64,7 @@ public class PlayerController3ABlend : MonoBehaviour
 
         if(Input.GetButtonDown("Fire1"))
         {
+            
             MiAnimador.SetTrigger("ATACAR");
         
         }

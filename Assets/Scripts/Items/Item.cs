@@ -2,17 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+public abstract class Item : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform EfectoVisual;
+    public abstract void Activar(Character perso);  
+
+    void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "Player")
+        {
+
+            GetComponent<Collider>().enabled = false;
+            Character perso
+                = other.GetComponent<Character>();
+            Recoger(perso);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Recoger(Character perso)
     {
+        print("Recogiendo item " + name);
         
+        Activar(perso);
+
+        Transform efecto = Instantiate(EfectoVisual, transform);
+      
+        
+        
+            Destroy(gameObject, 2);
+        
+
+            
+        
+        
+
     }
+
+    
 }
