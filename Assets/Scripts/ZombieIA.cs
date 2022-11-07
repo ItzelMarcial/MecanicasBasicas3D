@@ -9,13 +9,13 @@ public class ZombieIA : MonoBehaviour
     public float VelCaminado = 15f;
     private Rigidbody MiCuerpo;
     private Animator MiAnimador;
-    private Transform Player;
+    public Transform Player;
     // Start is called before the first frame update
     void Start()
     {
         MiCuerpo = GetComponent<Rigidbody>();
         MiAnimador = GetComponent<Animator>();
-        Player = GameObject.FindGameObjectWithTag("Player").transform;
+        //Player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame

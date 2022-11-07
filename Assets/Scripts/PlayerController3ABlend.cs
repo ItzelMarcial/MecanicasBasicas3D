@@ -84,4 +84,14 @@ public class PlayerController3ABlend : MonoBehaviour
     {
         
     }
+
+    public void FootL()
+    {
+
+    }
+
+    public void FootR()
+    {
+
+    }
 }
