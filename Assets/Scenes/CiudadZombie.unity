@@ -12713,7 +12713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c953590a9925a9e4abe81a6c25785c6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Objetivo: {fileID: 0}
+  Objetivo: {fileID: 875009249}
   AumentaForward: 2
   AumentaUp: 1
   AumentaPiso: 1

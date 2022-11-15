@@ -9,14 +9,18 @@ public class ArmaRango : MonoBehaviour
     public float TiempoEnfriamiento = 0.5f;
     //public float EfectoTiempo = 0.1f;
 
+    int dmg = 15;
     public GameObject EfectoDisparo;
     //referencia a la camara 
+
+   public Character Character;
+
 
     private Transform Camera;
     private float TiempoUltimoDisparo = 0;
 
     bool balaImpacto = false;
-    RaycastHit hit;
+    
 
     public bool Disparar()
     {
@@ -53,6 +57,7 @@ public class ArmaRango : MonoBehaviour
     void Start()
     {
         Camera = GameObject.FindGameObjectWithTag("MainCamera").transform;
+        this.Character = GetComponent<Character>();
     }
 
     private void Update()
@@ -72,9 +77,19 @@ public class ArmaRango : MonoBehaviour
 
     private void LanzarRayo()
     {
+        RaycastHit hit;
         if (Physics.Raycast(Camera.position, Camera.forward, out hit, 70f))
         {
-            print("Colision con " + hit.transform.name);
+            
+            Collider other = hit.collider;
+            print(other.tag);
+            if(other.tag == "Mob")
+            {
+                print("Colision con " + hit.transform.name);
+                other.GetComponent<Character>().RecibirDanio(dmg, this.gameObject, hit.point);
+            }
+           
+            
         }
         else
         {
