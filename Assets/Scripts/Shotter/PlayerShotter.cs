@@ -20,10 +20,11 @@ public class PlayerShotter : MonoBehaviour
         float rotHoriz = Input.GetAxis("Mouse X");
         float rotVert = Input.GetAxis("Mouse Y");
 
-        if(Input.GetButtonDown("S")) //pONER UN BOTON EN SETTINGS XD
+        if(Input.GetButtonDown("Bow")) //pONER UN BOTON EN SETTINGS XD
         {
             //Aquì poner l boton de agachado para que se hagan las animavioners de agacharse jsjs
             MiAnimador.SetTrigger("AGACHARSE");
+            print("Agachado");
         }
 
         //transform.Rotate(transform.up * rotHoriz); originales
