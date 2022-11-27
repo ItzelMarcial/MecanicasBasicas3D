@@ -675,7 +675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8059601381703688321, guid: c31cf9bb192d3624d8cb9ff6fee16322, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.1
+      value: 8.44
       objectReference: {fileID: 0}
     - target: {fileID: 8059601381703688321, guid: c31cf9bb192d3624d8cb9ff6fee16322, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1472,6 +1472,8 @@ MonoBehaviour:
   MirilaApuntar: {fileID: 1234475816}
   FoVApuntar: 30
   FoVNormal: 60
+  PtsConcentracion: 100
+  ConsumoConcentracion: 10
   AnimadorAvatar: {fileID: 0}
 --- !u!136 &2038570320
 CapsuleCollider:

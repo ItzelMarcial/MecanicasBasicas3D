@@ -10,7 +10,8 @@ public class PlayerShotter : MonoBehaviour
     public GameObject MirilaApuntar;
     public float FoVApuntar = 30;
     public float FoVNormal = 60;
-
+    public float PtsConcentracion = 100;
+    public float ConsumoConcentracion = 10;
     public Animator AnimadorAvatar; //Acceso al Animator del avatar
 
     private void Start()
@@ -39,21 +40,36 @@ public class PlayerShotter : MonoBehaviour
         LaCamara.transform.Rotate(LaCamara.transform.right * rotVert, Space.World); 
 
 
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1")) //Ctrl o clic xd
         {
             MiArma.Disparar();
         }
 
-        if(Input.GetButton("Fire2"))
+        if(Input.GetButton("Fire2")) //Alt 
         {
-            MirilaApuntar.SetActive(true);
-            LaCamara.fieldOfView = Mathf.Lerp(LaCamara.fieldOfView, FoVApuntar, Time.deltaTime * 5); //Propiedad de la camara
-            //El lerp es para que la mirilla apuntr aparezca lentamente
+
+
+            if (PtsConcentracion > 0)
+            {
+                MirilaApuntar.SetActive(true);
+                LaCamara.fieldOfView = Mathf.Lerp(LaCamara.fieldOfView, FoVApuntar, Time.deltaTime * 5); //Propiedad de la camara
+                //El lerp es para que la mirilla apuntr aparezca lentamente
+                Time.timeScale = 0.50f;
+                PtsConcentracion -= ConsumoConcentracion * (Time.deltaTime * 2); //Aproximadamente cada 10 segundos se acaba
+            }
+            else
+            {
+                MirilaApuntar.SetActive(false);
+                LaCamara.fieldOfView = FoVNormal;
+                Time.timeScale = 1f; //Volvemnos a la velocidad normal?
+            }
+
         }
         else
         {
             MirilaApuntar.SetActive(false);
             LaCamara.fieldOfView = FoVNormal;
+            Time.timeScale = 1f; //Volvemnos a la velocidad normal?
         }
     }
 }
